@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Print";
+}
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+$(document).ready(function () {
+//alert("hello");
+$('#btn1').click(function () {
+var ct = $("#content").val();
+alert(ct);
+var request = $.ajax({
+url: "/api/My/add",
+contentType: "application/json",
+method: "POST",
+data: JSON.stringify({ content: ct }) ,
+dataType: "json"
+});
+request.done(function (msg) {
+$("#log").html(msg);
+});
+request.fail(function (jqXHR, textStatus) {
+alert("Request failed: " + textStatus);
+});
+});
+})
+</script>
+<h1>Print</h1>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Print">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label for="content" class="control-label"></label>
+                <input name="content" id="content" class="form-control" />
+            </div>
+            <div class="form-group">
+                <input type="button" id="btn1" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+        <hr />
+        <div style="color:red;font-weight:bold" id="log"></div>
+    </div>
+</div>
+

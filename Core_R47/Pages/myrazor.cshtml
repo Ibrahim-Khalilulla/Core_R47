@@ -1,0 +1,31 @@
+﻿@page
+@model Core_R47.Pages.myrazorModel
+@{
+    ViewData["Title"] = "Home page";
+    Layout = "~/views/shared/_layout.cshtml";
+}
+
+<div class="container">
+    <div class="text-center">
+        <h1 class="display-4">@Model.Message.</h1>
+        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
+    <table class="table">
+
+
+        @foreach (var a in @Model.AllTeachers)
+        {
+            <tr>
+                <td>@a.LastName</td>
+                <td>@a.FirstMidName</td>
+            </tr>
+        }
+    </table>
+</div>
+
+<div class="card">
+
+    @(await Html.RenderComponentAsync<Core_R47.Views.Shared.Components.Mynewrazor>(RenderMode.ServerPrerendered,new {  Data="I came from Index",style= "badge-danger" }))
+
+
+</div>

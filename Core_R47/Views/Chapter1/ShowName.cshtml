@@ -1,0 +1,23 @@
+﻿@model Core_R47.Models.teachers
+@{
+    ViewBag.Title = "ShowName";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>ShowName</h2>
+@using (Html.BeginForm())
+{
+    <h2>Select Student</h2>
+
+    @Html.DropDownList("id", (IEnumerable<SelectListItem>)ViewBag.DDLProducts)
+    <input type="submit" value="Show" class="btn btn-default btn-primary" />
+}
+<hr />
+ID: @ViewBag.StId
+<br />
+FullName: @ViewData["FullName"]
+<hr />
+@if (ViewBag.StId != null)
+{
+    <a asp-controller="teachers" asp-action="edit" asp-route-id="@ViewBag.StId">EditStudents</a>
+}
+

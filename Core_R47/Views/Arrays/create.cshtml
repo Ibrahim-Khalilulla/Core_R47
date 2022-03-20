@@ -1,0 +1,19 @@
+﻿<form method="post" action="/arrays/create">
+    <label for="email1">Email1</label>
+    <input type="text" name="emails" id="email1" class="form-control" />
+    <label for="email2">Email2</label>
+    <input type="text" name="emails" id="email2" class="form-control" />
+    <label for="email1">Email3</label>
+    <input type="text" name="emails" id="email3" class="form-control" />
+    <button type="submit">Show Me</button>
+</form>
+<hr />
+@if (ViewBag.emails != null)
+{
+<ul>
+    @foreach (var item in ViewBag.emails)
+    {
+        <li>@item</li>
+    }
+</ul>
+}

@@ -1,0 +1,24 @@
+﻿@{
+    Layout = "~/views/shared/_layout.cshtml";
+    string[] a = { "karim", "rahim", "jamal", "kamal" };
+}
+<h1> Hello </h1>
+<div>
+    @Html.Partial("_MyPartial")
+</div>
+<hr />
+<div>
+    @{Html.RenderPartial("_Mypartial2", a); }
+</div>
+<hr />
+<div>
+    <my-first-tag-helper name="IDB Round 47">
+
+    </my-first-tag-helper>
+
+</div>
+<hr />
+<a asp-area="admin" asp-controller="Home" asp-action="index">Go to Admin Area</a>
+@section footer2{
+    <h2>My Website: Round-47</h2>
+}

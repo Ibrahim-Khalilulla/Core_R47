@@ -1,0 +1,11 @@
+﻿@page
+@model Core_R47.Pages.PupyModel
+@inject Core_R47.services.PuppyService a
+
+@{
+    var puppy = a.Adopt();
+}
+
+<div class="text-center">
+    <h1 class="display-4">@puppy.Name</h1>
+</div>
